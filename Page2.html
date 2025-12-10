@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Calculator App - Complete Master Guide</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --bg: #f4f6f9;
+            --text: #333;
+            --code-bg: #282c34;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 40px;
+            font-size: 1.2rem;
+        }
+        h3 {
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        p, li {
+            font-size: 0.95rem;
+        }
+        .code-container {
+            position: relative;
+            margin: 15px 0;
+        }
+        pre {
+            background: var(--code-bg);
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        .copy-btn:hover {
+            opacity: 1;
+        }
+        .alert {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Gold Calculator App - Master Guide</h1>
+    <p style="text-align: center;">এই গাইডে অ্যাপের কোড লজিক এবং গিটহাব অ্যাকশন বিল্ড প্রসেস সব একসাথে দেওয়া আছে।</p>
+
+    <!-- PART 1: APP CODE SETUP -->
+    <h2>অংশ ১: অ্যাপ কোড সেটআপ (PDF & WebView Logic)</h2>
+
+    <h3>১. প্রয়োজনীয় প্যাকেজ ইনস্টল</h3>
+    <p>টার্মিনালে এই কমান্ড দিন:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('pkgCmd')">Copy</button>
+        <pre id="pkgCmd">npx expo install react-native-webview expo-file-system expo-sharing</pre>
+    </div>
+
+    <h3>২. ওয়েবসাইট স্ক্রিপ্ট আপডেট (script.js)</h3>
+    <p>আপনার ওয়েবসাইটের জাভাস্ক্রিপ্টে <code>downloadPDF</code> ফাংশনটি এভাবে আপডেট করুন:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('jsCode')">Copy</button>
+        <pre id="jsCode">function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // ... আপনার পিডিএফ ডিজাইনের কোড ...
+
+    // লজিক:
+    if (window.ReactNativeWebView) {
+        // ১. অ্যাপ হলে: ডাটা অ্যাপে পাঠানো
+        const pdfData = doc.output('datauristring');
+        window.ReactNativeWebView.postMessage(JSON.stringify({
+            type: 'downloadPDF',
+            data: pdfData, 
+            filename: 'gold_history.pdf'
+        }));
+    } else {
+        // ২. ব্রাউজার হলে: সরাসরি ডাউনলোড
+        doc.save("gold_history.pdf");
+    }
+}</pre>
+    </div>
+
+    <h3>৩. ওয়েবসাইটের CSS আপডেট (style.css)</h3>
+    <p>মোবাইলে টেবিল যাতে কেটে না যায়, তার জন্য CSS ফাইলে সবার নিচে এটা দিন:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('cssCode')">Copy</button>
+        <pre id="cssCode">@media (max-width: 600px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .card { overflow-x: auto; }
+    .data-table th, .data-table td {
+        padding: 10px 8px;
+        font-size: 12px;
+        white-space: nowrap; 
+    }
+}</pre>
+    </div>
+
+    <h3>৪. অ্যাপের মেইন কোড (app/_layout.tsx)</h3>
+    <p>Expo অ্যাপে PDF রিসিভ করে সেভ করার জন্য পুরো কোড (SDK 52 Fix সহ):</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('tsxCode')">Copy</button>
+        <pre id="tsxCode">import React, { useRef } from 'react';
+import { SafeAreaView, StatusBar, StyleSheet, Alert } from 'react-native';
+import { WebView } from 'react-native-webview';
+// Legacy import for Expo SDK 52+
+import * as FileSystem from 'expo-file-system/legacy'; 
+import * as Sharing from 'expo-sharing';
+
+export default function App() {
+  const webViewRef = useRef(null);
+  const WEBSITE_URL = 'https://keshab1997.github.io/Gold_Calculator_pro/';
+
+  const handleWebViewMessage = async (event: any) => {
+    try {
+      const messageData = event.nativeEvent.data;
+      let message;
+      try { message = JSON.parse(messageData); } catch (e) { return; }
+
+      if (message.type === 'downloadPDF') {
+        const base64Code = message.data.split(',')[1];
+        const filename = FileSystem.documentDirectory + message.filename;
+
+        await FileSystem.writeAsStringAsync(filename, base64Code, {
+          encoding: 'base64',
+        });
+
+        if (await Sharing.isAvailableAsync()) {
+          await Sharing.shareAsync(filename);
+        } else {
+          Alert.alert("Saved", "File saved successfully!");
+        }
+      }
+    } catch (error) {
+      console.error("PDF Save Error:", error);
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar hidden={true} />
+      <WebView
+        ref={webViewRef}
+        source={{ uri: WEBSITE_URL }}
+        style={{ flex: 1 }}
+        javaScriptEnabled={true}
+        domStorageEnabled={true}
+        onMessage={handleWebViewMessage} 
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#fff' },
+});</pre>
+    </div>
+
+    <!-- PART 2: BUILD PROCESS -->
+    <h2>অংশ ২: গিটহাব অ্যাকশন বিল্ড প্রসেস (APK তৈরি)</h2>
+
+    <h3>১. টোকেন সেটআপ</h3>
+    <div class="alert">
+        <strong>GitHub Settings > Secrets > Actions</strong>-এ গিয়ে <code>EXPO_TOKEN</code> নামে টোকেন বসাতে হবে।
+        <br>আপনার টোকেন: <strong>RIEpCFmKIN--zP8sdAWM_6BYu6670yzxAfzPbwfd</strong>
+    </div>
+
+    <h3>২. eas.json কনফিগারেশন</h3>
+    <p>আপনার প্রোজেক্টের <code>eas.json</code> ফাইলে এটি থাকতে হবে:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('easJson')">Copy</button>
+        <pre id="easJson">{
+  "cli": { "version": ">= 7.0.0" },
+  "build": {
+    "preview": {
+      "android": { "buildType": "apk" }
+    },
+    "production": {}
+  }
+}</pre>
+    </div>
+
+    <h3>৩. প্রোজেক্ট লিঙ্ক ও Keystore জেনারেট</h3>
+    <p>টার্মিনালে এই কমান্ডগুলো পরপর দিন (একবারই করতে হবে):</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('setupCmd')">Copy</button>
+        <pre id="setupCmd"># ১. প্রোজেক্ট কনফিগার
+eas build:configure
+
+# ২. Keystore তৈরি (Y চাপুন, তৈরি শুরু হলে Ctrl+C দিয়ে থামান)
+eas build --platform android --profile preview</pre>
+    </div>
+
+    <h3>৪. GitHub Workflow ফাইল</h3>
+    <p>ফাইল পাথ: <code>.github/workflows/android_build.yml</code></p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('yamlCode')">Copy</button>
+        <pre id="yamlCode">name: Build Android APK (Free)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup repo
+        uses: actions/checkout@v4
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: npm
+
+      - name: 🏗 Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: 🏗 Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Build APK
+        run: eas build --platform android --profile preview --non-interactive --local --output=app-release.apk
+
+      - name: 📤 Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: gold-calculator-apk
+          path: app-release.apk</pre>
+    </div>
+
+    <h3>৫. নতুন প্রোজেক্ট আপলোড (Git Init)</h3>
+    <p>যদি এটি নতুন প্রোজেক্ট হয়, তবে প্রথমে এই কমান্ডগুলো দিয়ে গিটহাবে আপলোড করুন:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('gitInitCmd')">Copy</button>
+        <pre id="gitInitCmd">git init
+git add .
+git commit -m "Initial setup with Actions"
+git branch -M main
+git remote add origin https://github.com/keshab1997/Gold_Calculator_pro_apk.git
+git push -u origin main</pre>
+    </div>
+    
+    <h3>৬. আপডেট এবং বিল্ড রান</h3>
+    <p>যদি আগে থেকেই গিটহাবে থাকে, তবে শুধু আপডেট পুশ করুন:</p>
+    <div class="code-container">
+        <button class="copy-btn" onclick="copyCode('gitPushCmd')">Copy</button>
+        <pre id="gitPushCmd">git add .
+git commit -m "Update code"
+git push</pre>
+    </div>
+    <p>GitHub এ গিয়ে <strong>Actions > Build Android APK > Run Workflow</strong> বাটনে ক্লিক করুন।</p>
+
+</div>
+
+<script>
+    function copyCode(id) {
+        var copyText = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(copyText).then(function() {
+            alert("Code Copied!");
+        }, function() {
+            alert("Failed to copy code");
+        });
+    }
+</script>
+
+</body>
+</html>
