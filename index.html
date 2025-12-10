@@ -3,63 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Calculator App - Ultimate Master Guide</title>
+    <title>Expo to APK: The Complete Bug-Free Guide</title>
     <style>
         :root {
-            --primary: #1e3c72;
-            --secondary: #2a5298;
-            --accent: #ff9800;
-            --bg: #f5f7fa;
-            --text: #333;
-            --code-bg: #282c34;
+            --primary: #007acc; /* VS Code Blue */
+            --secondary: #1e1e1e; /* Dark Bg */
+            --accent: #4caf50; /* Green */
+            --text: #d4d4d4; /* Light Text */
+            --code-bg: #2d2d2d;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
+            font-family: 'Segoe UI', Consolas, sans-serif;
+            background-color: var(--secondary);
             color: var(--text);
             margin: 0;
             padding: 20px;
             line-height: 1.6;
         }
         .container {
-            max-width: 950px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: #252526;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #3e3e42;
         }
         h1 {
             text-align: center;
-            color: var(--primary);
-            border-bottom: 3px solid var(--secondary);
+            color: #61dafb; /* React Blue */
+            border-bottom: 2px solid #3e3e42;
             padding-bottom: 20px;
             margin-bottom: 40px;
         }
-        .section-title {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 20px;
+        .step {
+            background: #333333;
+            padding: 20px;
             border-radius: 8px;
-            margin-top: 50px;
-            font-size: 1.4rem;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+        }
+        .step-title {
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: bold;
             display: flex;
             align-items: center;
         }
-        .section-title span {
-            background: rgba(255,255,255,0.2);
-            padding: 5px 12px;
-            border-radius: 50%;
-            margin-right: 15px;
-            font-size: 1rem;
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 0.9rem;
         }
-        h3 {
-            color: var(--secondary);
-            border-left: 4px solid var(--accent);
-            padding-left: 12px;
-            margin-top: 30px;
-        }
-        p { margin-bottom: 10px; }
+        p { margin-bottom: 10px; font-size: 0.95rem; }
         
         /* Code Block Styling */
         .code-wrapper {
@@ -67,23 +67,23 @@
             margin: 15px 0;
         }
         pre {
-            background: var(--code-bg);
-            color: #abb2bf;
-            padding: 18px;
-            border-radius: 8px;
+            background: #1e1e1e;
+            color: #9cdcfe;
+            padding: 15px;
+            border-radius: 6px;
             overflow-x: auto;
             font-family: 'Consolas', 'Monaco', monospace;
             font-size: 14px;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
         }
         .copy-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 6px 12px;
+            background: #444;
+            color: white;
+            border: none;
+            padding: 5px 10px;
             border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
@@ -91,120 +91,57 @@
         }
         .copy-btn:hover {
             background: var(--accent);
-            border-color: var(--accent);
-            color: #fff;
         }
-
-        /* Note Box */
-        .note {
-            background: #fff8e1;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
+        .important {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid #ff9800;
+            color: #ffb74d;
+            padding: 10px;
             border-radius: 4px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Gold Calculator App - Ultimate Guide</h1>
-    <p style="text-align: center;">নতুন প্রোজেক্ট তৈরি, কমান্ড রেফারেন্স, কোড লজিক এবং গিটহাব বিল্ড—সব কিছু এক ফাইলে।</p>
+    <h1>Expo to APK: Bug-Free Guide</h1>
+    <p style="text-align: center; color: #aaa;">VS Code সেটআপ থেকে শুরু করে GitHub Actions দিয়ে APK বিল্ড—সব এক জায়গায়।</p>
 
-    <!-- PART 1: COMMAND REFERENCE -->
-    <div class="section-title"><span>1</span> কমান্ড রেফারেন্স (Command Reference)</div>
-
-    <h3>১. নতুন প্রোজেক্ট শুরু করার কমান্ড</h3>
-    <p>ভবিষ্যতে একদম নতুন অ্যাপ বানাতে চাইলে:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('newProject')">Copy</button>
-        <pre id="newProject">npx create-expo-app Gold-Calculator-Pro
+    <!-- STEP 1 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ১</span> প্রোজেক্ট সেটআপ (VS Code)</div>
+        <p>প্রথমে নতুন প্রোজেক্ট তৈরি করুন এবং ফোল্ডারে ঢুকুন।</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('initCmd')">Copy</button>
+            <pre id="initCmd">npx create-expo-app Gold-Calculator-Pro
 cd Gold-Calculator-Pro</pre>
+        </div>
+        
+        <p>প্রয়োজনীয় প্যাকেজগুলো ইন্সটল করুন (WebView, FileSystem, Sharing):</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('pkgCmd')">Copy</button>
+            <pre id="pkgCmd">npx expo install react-native-webview expo-file-system expo-sharing</pre>
+        </div>
     </div>
 
-    <h3>২. ম্যাকবুক সজাগ রাখার কমান্ড</h3>
-    <p>বিল্ড করার সময় যাতে ম্যাক বন্ধ না হয়:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('wakeCmd')">Copy</button>
-        <pre id="wakeCmd">caffeinate -d</pre>
-    </div>
-
-    <h3>৩. অ্যাপ টেস্ট করার কমান্ড</h3>
-    <p>কোড বা লোগো পরিবর্তনের পর মোবাইলে চেক করতে:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('testCmd')">Copy</button>
-        <pre id="testCmd">npx expo start</pre>
-    </div>
-
-    <h3>৪. প্যাকেজ ইন্সটল কমান্ড</h3>
-    <p>WebView এবং অন্যান্য প্রয়োজনীয় প্যাকেজ:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('pkgCmd')">Copy</button>
-        <pre id="pkgCmd">npx expo install react-native-webview expo-file-system expo-sharing expo-keep-awake</pre>
-    </div>
-
-    <h3>৫. ম্যানুয়াল বিল্ড কমান্ড (PC তে)</h3>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('buildCmd')">Copy</button>
-        <pre id="buildCmd">eas build -p android --profile preview</pre>
-    </div>
-
-    <!-- PART 2: APP CODE LOGIC -->
-    <div class="section-title"><span>2</span> অ্যাপ কোড লজিক (PDF & View)</div>
-
-    <h3>১. ওয়েবসাইট স্ক্রিপ্ট আপডেট (script.js)</h3>
-    <p>অ্যাপের ভেতর PDF ডাউনলোডের জন্য ওয়েবসাইটের কোড:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('jsCode')">Copy</button>
-        <pre id="jsCode">function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // ... আপনার পিডিএফ ডিজাইনের কোড ...
-
-    if (window.ReactNativeWebView) {
-        // অ্যাপ হলে: ডাটা অ্যাপে পাঠাবে
-        const pdfData = doc.output('datauristring');
-        window.ReactNativeWebView.postMessage(JSON.stringify({
-            type: 'downloadPDF',
-            data: pdfData, 
-            filename: 'gold_history.pdf'
-        }));
-    } else {
-        // ব্রাউজার হলে: সরাসরি ডাউনলোড
-        doc.save("gold_history.pdf");
-    }
-}</pre>
-    </div>
-
-    <h3>২. ওয়েবসাইটের CSS আপডেট (style.css)</h3>
-    <p>মোবাইলে টেবিল ঠিক রাখার জন্য:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('cssCode')">Copy</button>
-        <pre id="cssCode">@media (max-width: 600px) {
-    .form-grid { grid-template-columns: 1fr; }
-    .card { overflow-x: auto; }
-    .data-table th, .data-table td {
-        padding: 10px 8px;
-        font-size: 12px;
-        white-space: nowrap; 
-    }
-}</pre>
-    </div>
-
-    <h3>৩. অ্যাপের লেআউট কোড (app/_layout.tsx)</h3>
-    <p>Expo অ্যাপে PDF রিসিভ ও সেভ করার জন্য:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('tsxCode')">Copy</button>
-        <pre id="tsxCode">import React, { useRef } from 'react';
+    <!-- STEP 2 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ২</span> অ্যাপের কোড (Bug Fix সহ)</div>
+        <p>ফাইল: <code>app/_layout.tsx</code> (বা <code>App.js</code>)। পুরানো কোড মুছে এটি বসান।<br>
+        <strong>ফিক্স:</strong> এতে Expo SDK 52 এর 'legacy' ইমপোর্ট এবং 'base64' স্ট্রিং ফিক্স করা আছে।</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('appCode')">Copy</button>
+            <pre id="appCode">import React, { useRef } from 'react';
 import { SafeAreaView, StatusBar, StyleSheet, Alert } from 'react-native';
 import { WebView } from 'react-native-webview';
-// Legacy import for Expo SDK 52+
+// Legacy import for SDK 52+
 import * as FileSystem from 'expo-file-system/legacy'; 
 import * as Sharing from 'expo-sharing';
 
 export default function App() {
   const webViewRef = useRef(null);
+  // আপনার গিটহাব ওয়েবসাইটের লিংক দিন
   const WEBSITE_URL = 'https://keshab1997.github.io/Gold_Calculator_pro/';
 
   const handleWebViewMessage = async (event: any) => {
@@ -217,6 +154,7 @@ export default function App() {
         const base64Code = message.data.split(',')[1];
         const filename = FileSystem.documentDirectory + message.filename;
 
+        // Bug Fix: encoding type string 'base64'
         await FileSystem.writeAsStringAsync(filename, base64Code, {
           encoding: 'base64',
         });
@@ -250,21 +188,26 @@ export default function App() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
 });</pre>
+        </div>
     </div>
 
-    <!-- PART 3: GITHUB ACTIONS SETUP -->
-    <div class="section-title"><span>3</span> গিটহাব অ্যাকশন সেটআপ (Free Build)</div>
+    <!-- STEP 3 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ৩</span> EAS কনফিগারেশন (EAS Config)</div>
+        <p>EAS লগইন করুন এবং কনফিগার শুরু করুন:</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('easLog')">Copy</button>
+            <pre id="easLog">eas login
+eas build:configure</pre>
+        </div>
+        <div class="important">
+            <strong>নোট:</strong> যখন জিজ্ঞেস করবে 'Which platforms?', তখন <strong>Android</strong> সিলেক্ট করুন।
+        </div>
 
-    <div class="note">
-        <strong>GitHub Settings:</strong> Secrets > Actions > New Secret<br>
-        <strong>Name:</strong> EXPO_TOKEN<br>
-        <strong>Value:</strong> RIEpCFmKIN--zP8sdAWM_6BYu6670yzxAfzPbwfd
-    </div>
-
-    <h3>১. eas.json কনফিগারেশন</h3>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('easJson')">Copy</button>
-        <pre id="easJson">{
+        <p>এখন <code>eas.json</code> ফাইলটি এডিট করে নিচের মতো করুন (buildType: apk যোগ করা):</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('easJson')">Copy</button>
+            <pre id="easJson">{
   "cli": { "version": ">= 7.0.0" },
   "build": {
     "preview": {
@@ -273,24 +216,32 @@ const styles = StyleSheet.create({
     "production": {}
   }
 }</pre>
+        </div>
     </div>
 
-    <h3>২. কনফিগার ও Keystore জেনারেট</h3>
-    <p>টার্মিনালে এই কমান্ডগুলো একবার রান করতে হবে:</p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('configCmd')">Copy</button>
-        <pre id="configCmd"># প্রোজেক্ট লিঙ্ক করা
-eas build:configure
-
-# Keystore বানানো (Y চাপবেন, শুরু হলে Ctrl+C দিয়ে থামাবেন)
-eas build --platform android --profile preview</pre>
+    <!-- STEP 4 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ৪</span> Keystore তৈরি (জরুরি!)</div>
+        <p>গিটহাব অ্যাকশন যাতে পাসওয়ার্ডের জন্য আটকে না যায়, তাই একবার ম্যানুয়ালি Keystore বানাতে হবে।</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('keyCmd')">Copy</button>
+            <pre id="keyCmd">eas build --platform android --profile preview</pre>
+        </div>
+        <div class="important">
+            <strong>নির্দেশনা:</strong> কমান্ড দেওয়ার পর যখন জিজ্ঞেস করবে <em>"Generate a new Android Keystore?"</em>, তখন <strong>Y</strong> চাপুন। আপলোড শুরু হলে <strong>Ctrl + C</strong> দিয়ে বন্ধ করে দিন।
+        </div>
     </div>
 
-    <h3>৩. GitHub Workflow ফাইল</h3>
-    <p>পাথ: <code>.github/workflows/android_build.yml</code></p>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('yamlCode')">Copy</button>
-        <pre id="yamlCode">name: Build Android APK (Free)
+    <!-- STEP 5 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ৫</span> GitHub Action সেটআপ</div>
+        <p>১. আপনার GitHub Repo > Settings > Secrets > Actions এ গিয়ে <code>EXPO_TOKEN</code> বসান।</p>
+        
+        <p>২. VS Code এ ফোল্ডার ও ফাইল বানান: <code>.github/workflows/android_build.yml</code></p>
+        <p>৩. নিচের কোডটি পেস্ট করুন (এতে সব ভার্সন ফিক্স করা আছে):</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('yamlCode')">Copy</button>
+            <pre id="yamlCode">name: Build Android APK (Free)
 
 on:
   workflow_dispatch:
@@ -332,14 +283,26 @@ jobs:
         with:
           name: gold-calculator-apk
           path: app-release.apk</pre>
+        </div>
     </div>
 
-    <h3>৪. গিটহাবে পাঠানো এবং বিল্ড</h3>
-    <div class="code-wrapper">
-        <button class="copy-btn" onclick="copyCode('gitCmd')">Copy</button>
-        <pre id="gitCmd">git add .
-git commit -m "Build setup"
-git push</pre>
+    <!-- STEP 6 -->
+    <div class="step">
+        <div class="step-title"><span class="badge">ধাপ ৬</span> গিটহাব পুশ ও বিল্ড</div>
+        <p>সব ফাইল সেভ করে নিচের কমান্ডগুলো দিন (অবশ্যই আপনার গিটহাব লিংক ব্যবহার করবেন):</p>
+        <div class="code-wrapper">
+            <button class="copy-btn" onclick="copyCode('gitCmd')">Copy</button>
+            <pre id="gitCmd">git init
+git add .
+git commit -m "Final setup for build"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git push -u origin main</pre>
+        </div>
+        <div class="important">
+            <strong>শেষে:</strong> GitHub > Actions > Build Android APK > Run Workflow.<br>
+            ১৫-২০ মিনিট পর <strong>Artifacts</strong> থেকে APK ডাউনলোড করুন।
+        </div>
     </div>
 
 </div>
@@ -348,9 +311,9 @@ git push</pre>
     function copyCode(id) {
         var copyText = document.getElementById(id).innerText;
         navigator.clipboard.writeText(copyText).then(function() {
-            alert("Code Copied!");
+            alert("কপি হয়েছে!");
         }, function() {
-            alert("Copy failed");
+            alert("কপি করতে সমস্যা হয়েছে");
         });
     }
 </script>
